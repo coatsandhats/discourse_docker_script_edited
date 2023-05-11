@@ -22,13 +22,8 @@ apt -y -q install git make gcc pkg-config autoconf curl g++ yasm cmake \
     libwebpmux3 libwebpdemux2 ghostscript libxml2-dev libxml2-utils librsvg2-dev \
     libltdl7-dev libbz2-dev gsfonts libtiff-dev libfreetype6-dev libjpeg-dev
 
-# Ubuntu doesn't like `bullseye-backports`
-if cat /etc/issue | grep -qi 'Ubuntu 22'; then
-  apt -y install libheif1 libaom-dev libheif-dev
-else
-  # Use backports instead of compiling it
-  apt -y -q install -t bullseye-backports libheif1 libaom-dev libheif-dev
-fi
+
+apt -y install libheif1 libaom-dev libheif-dev
 
 mkdir -p $WDIR
 cd $WDIR
